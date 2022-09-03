@@ -2,12 +2,11 @@ from re import A
 from fastapi import FastAPI
 from database import models
 from database.database import engine
+from routes import postRoute
 
 app = FastAPI()
+app.include_router(postRoute.router)
 
-@app.get("/")
-def index():
-    return {'msg': "Hello World"}
 
 
 
